@@ -77,13 +77,13 @@ function CartDetails() {
 
   return (
     <>
-      <div className="w-[95%] md:w-[60%] bg-gray-50 m-auto mt-12 rounded-xl shadow-2xl shadow-black/20">
-        <div className="flex flex-row justify-between w-full h-[25%] bg-black rounded-t-xl p-3.5">
-          <span className="text-white text-2xl font-medium">Your Cart{carts.length > 0 ? `(${carts.length})`: ""}</span>
+      <div className="w-[95%] md:w-[85%] bg-gray-50 m-auto mt-12 rounded-xl shadow-2xl shadow-black/20">
+        <div className="flex flex-row justify-between w-full h-[25%] bg-black rounded-t-xl md:p-3.5 p-2">
+          <span className="text-white md:text-2xl text-[18px] font-medium my-auto">Your Cart{carts.length > 0 ? `(${carts.length})`: ""}</span>
           {carts.length > 0 ? (
-            <button onClick={handleEmptyCart} className="text-white hover:text-gray-200 cursor-pointer p-1 rounded-xl bg-[#d83434] hover:bg-[#cc0000]">
+            <button onClick={handleEmptyCart} className="text-white hover:text-gray-200 cursor-pointer p-1 md:text-[20px] text-xs rounded-xl bg-[#d83434] hover:bg-[#cc0000]">
               <span>
-                <DeleteForeverRoundedIcon className="mb-0.5" />
+                <DeleteForeverRoundedIcon className="md:mb-0.5 mb-0" />
                 Empty Cart
               </span>
             </button>
@@ -100,14 +100,14 @@ function CartDetails() {
             </div>
           ) : (
 
-            <table className="border-separate border-spacing-4 w-full">
+            <table className="border-separate md:border-spacing-4 border-spacing-1 w-full p-1">
                 <thead>
-                  <tr className="text-left">
-                    <th className="">Action</th>
-                    <th className="">Product</th>
-                    <th className="">Name</th>
-                    <th className="">Price</th>
-                    <th className="">Qty</th>
+                  <tr className="md:text-left md:text-[17px] text-[11px]">
+                    <th className="md:pr-0 pr-2">Action</th>
+                    <th>Product</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Qty</th>
                     <th className="text-right">Total Amount</th>
                   </tr>
                 </thead>
@@ -119,22 +119,22 @@ function CartDetails() {
                         <tr>
                           <td>
                           <button onClick={()=>handleDelete(data.id)}>
-                            <DeleteIcon className="text-red-500 hover:text-red-900 hover:bg-red-300 cursor-pointer bg-red-100 p-0.5 !h-[32px] !w-[35px]"/>
+                            <DeleteIcon className="text-red-500 hover:text-red-900 hover:bg-red-300 cursor-pointer bg-red-100 p-0.5 md:!h-[32px] md:!w-[35px]"/>
                           </button>
                           </td>
                           <td>
-                            <img src={data.imgdata} alt="jpg" className="w-[40px] h-[40px] rounded-md"/>
+                            <img src={data.imgdata} alt="jpg" className="md:w-[40px] md:h-[40px] w-[30px] h-[30px] rounded-md"/>
                           </td>
-                          <td>{data.dish}</td>
-                          <td>{data.price}</td>
+                          <td className="md:text-[15px] md:text-left text-center text-[9px]">{data.dish}</td>
+                          <td className="md:text-[15px] text-[9px]">{data.price}</td>
                           <td>
-                            <div className="flex flex-row gap-2">
-                              <button onClick={data.qnty<=0 ? handleDelete(data.id) :()=>handleDecrement(data)} className=""><RemoveIcon className="bg-blue-200 hover:bg-blue-400 cursor-pointer !w-[30px] !h-[30px] p-2"/></button>
-                              <input type="text" className="w-[50px] text-center border border-gray-300" value={data.qnty} disabled />
-                              <button onClick={()=>handleIncrement(data)} className=""><AddIcon className="bg-blue-200 hover:bg-blue-400 cursor-pointer !w-[30px] !h-[30px] p-2"/></button>
+                            <div className="flex flex-row md:gap-2 gap-1">
+                              <button onClick={data.qnty<=0 ? handleDelete(data.id) :()=>handleDecrement(data)}><RemoveIcon className="bg-blue-200 hover:bg-blue-400 cursor-pointer md:!w-[30px] !w-[15px] !h-[15px] md:!h-[30px] md:p-2 p-1"/></button>
+                              <input type="text" className="md:w-[50px] md:h-[30px] w-[15px] h-[15px] my-auto text-center border border-gray-300 md:text-[16px] text-[8px] md:translate-y-0 translate-y-[1px]" value={data.qnty} disabled />
+                              <button onClick={()=>handleIncrement(data)} className=""><AddIcon className="bg-blue-200 hover:bg-blue-400 cursor-pointer md:!w-[30px] md:!h-[30px] !w-[15px] !h-[15px] md:p-2 p-1"/></button>
                             </div>
                           </td>
-                          <td className="text-right">₹ {data.price*data.qnty}</td>
+                          <td className="text-right md:text-[15px] text-[9px]">₹ {data.price*data.qnty}</td>
                         </tr>
                       )
                     }) 
@@ -142,8 +142,8 @@ function CartDetails() {
                 </tbody>
                 <tfoot>
                   <th colSpan={4}></th>
-                  <th className="text-left">Items In Cart <span className="mx-2">:</span> <span className="text-red-700">{totalQuantity}</span></th>
-                  <th className="text-right">Total Price <span className="mx-2">:</span> <span className="text-red-700">₹ {totalPrice}</span></th>
+                  <th className="md:text-left md:text-[15px] text-[9px]">Items In Cart : <span className="text-red-700">{totalQuantity}</span></th>
+                  <th className="text-right flex md:flex-row md:justify-end flex-col md:text-[15px] text-[9px]">Total Price : <span className="text-red-700">₹ {totalPrice}</span></th>
                 </tfoot>
             </table>
           )}

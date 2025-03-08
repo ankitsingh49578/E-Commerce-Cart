@@ -9,7 +9,7 @@ function Header() {
   // console.log(cartData)
   return (
     <>
-      <div className='flex flex-row justify-between py-4 px-16 text-white bg-black w-full h-16'>
+      <div className='flex flex-row justify-between py-4 sm:px-16 px-6 text-white bg-black w-full h-16'>
         <NavLink to="/">
           <div className='font-bold text-3xl'>E-Commerce</div>
         </NavLink>

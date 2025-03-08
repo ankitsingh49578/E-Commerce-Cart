@@ -16,9 +16,9 @@ function Home() {
   }
   return (
     <>
-      <div className='mt-4 px-20'>
-        <h2 className='text-3xl my-4'>Restaurants in Faridabad Open now</h2>
-        <div className='flex flex-row flex-wrap gap-7 mb-10'>
+      <div className='mt-4 md:px-16'>
+        <h2 className='sm:text-3xl text-2xl font-semibold text-center my-4'>Restaurants in Faridabad Open now</h2>
+        <div className='flex flex-row flex-wrap gap-7 mb-10 justify-center'>
         {
           cartData.map((val, index) =>{
             return <Card val={val} send={send} img={val.imgdata} name={val.dish} address={val.address} price={val.price} rating={val.rating}/>

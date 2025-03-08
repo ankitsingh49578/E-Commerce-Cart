@@ -3,8 +3,8 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 function Card({ send, val, img, name, address, price, rating }) {
   return (
-    <div className="w-[340px] h-[330px] p-3 bg-gray-100 shadow-black/20 hover:shadow-black/40 hover:cursor-pointer shadow-2xl duration-300 rounded-xl">
-      <img src={img} alt="" className="w-[350px] h-[200px] rounded-4xl" />
+    <div className="md:w-[340px] md:h-[330px] w-[80%] p-3 bg-gray-100 shadow-black/20 hover:shadow-black/40 hover:cursor-pointer shadow-2xl duration-300 rounded-xl">
+      <img src={img} alt="" className="w-full h-[200px] rounded-4xl" />
 
       <div className="mt-2">
         <div className="flex flex-row justify-between mb-1">
@@ -24,10 +24,10 @@ function Card({ send, val, img, name, address, price, rating }) {
             alt="img"
             className="w-[20px] h-[20px] my-auto"
           />
-          <button onClick={()=>send(val)} className="bg-[#e64343] hover:bg-[#cc0000] cursor-pointer mt-1 h-[35px] text-[14px] rounded-full px-2.5 text-white">
+          <button onClick={()=>send(val)} className="bg-[#e64343] hover:bg-[#cc0000] cursor-pointer mt-1 h-[35px] md:text-[14px] text-[10px] rounded-full md:px-2.5 px-1.5 text-white">
             ADD TO CART{" "}
             <span>
-              <ShoppingCartIcon />
+              <ShoppingCartIcon className="md:!h-[20px] md:!w-[20px] !h-[15px] !w-[15px]" />
             </span>
           </button>
           <img
